@@ -24,7 +24,8 @@
       background: var(--sand);
       font-family: 'Lato', sans-serif;
       color: var(--navy);
-      width: 1200px;
+      width: 100%;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -502,6 +503,65 @@
       color: rgba(255,255,255,1);
       letter-spacing: 2px; text-transform: uppercase;
       margin-top: 5px;
+    }
+
+    /* ── RESPONSIVE / MOBILE ────────────────────────── */
+    @media (max-width: 860px) {
+      /* Header stacks; artwork drops below the title */
+      .page-header {
+        grid-template-columns: 1fr;
+        padding: 28px 24px 26px;
+        gap: 16px;
+      }
+      .headline { font-size: 40px; }
+      .subtitle { font-size: 16px; }
+      .subtitle-minor { font-size: 15px; }
+      .header-right { min-height: 90px; }
+      .header-columns { max-height: 120px; }
+
+      /* Roomier tap-friendly body padding */
+      .body-wrap { padding: 28px 20px 32px; }
+      .doc-footer { padding: 16px 20px; }
+
+      /* Theme tags stack into a single column */
+      .stats-band {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        padding: 20px !important;
+      }
+      .stats-band > div { border-right: none !important; padding: 0 !important; }
+
+      /* Each pillar becomes a single vertical stack */
+      .pillar-card { grid-template-columns: 1fr !important; }
+      .pillar-meta { grid-row: auto !important; }
+      .pillar-content,
+      .pillar-content.split { display: block !important; }
+
+      /* Data blocks: collapse the internal multi-column rows */
+      .data-stats-row { grid-template-columns: 1fr !important; }
+      .data-quotes-row { grid-template-columns: 1fr !important; }
+      .barriers-grid { grid-template-rows: none !important; }
+
+      /* Reframe comparisons stack, arrow points down */
+      .reframe-inner {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .reframe-arrow { transform: rotate(90deg); }
+
+      /* Closing block wraps its action row */
+      .closing-bottom { flex-wrap: wrap; gap: 12px; }
+      .doc-footer { flex-wrap: wrap; gap: 8px; }
+    }
+
+    @media (max-width: 480px) {
+      .headline { font-size: 32px; }
+      .stat-num, .data-stat-num { font-size: 24px; }
+      .body-wrap { padding: 22px 16px 26px; }
+      .page-header { padding: 24px 16px 22px; }
+      .content-section { padding: 16px !important; }
+      .closing { padding: 22px 18px; }
+      .reframe-box { padding: 22px 18px; }
     }
   </style>
 </head>
